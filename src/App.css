@@ -1,23 +1,32 @@
+/* General Styles */
+body {
+  font-family: proxima-nova, sans-serif;
+  font-style: normal;
+  overflow-x: hidden;
+}
+
+/* Header Styles */
 header {
   background: #000;
   padding: 20px;
-  position: relative; /* Required for absolute positioning of child elements */
+  position: relative;
 }
 
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Keep items on both ends */
+  justify-content: space-between;
 }
 
 .header-logo img {
-  /* Adjust as needed */
+  max-width: 120px; /* Logo size */
+  margin: 0 auto;
 }
 
 .header-nav {
-  width: 100%; /* Ensure nav spans the full width of the header */
+  width: 100%;
   display: flex;
-  justify-content: center; /* Center the navigation links */
+  justify-content: center;
 }
 
 .header-nav ul {
@@ -25,15 +34,15 @@ header {
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center; /* Center the navigation links */
-  position: absolute; /* Position the nav list absolutely */
-  top: 50px; /* Align to the top */
-  left: 50%; /* Move to the middle */
-  transform: translateX(-50%); /* Offset by half its width to truly center it */
+  justify-content: center;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .header-nav ul li {
-  margin: 0 10px; /* Adjust spacing between menu items */
+  margin: 0 10px;
 }
 
 .header-nav ul li a {
@@ -42,88 +51,18 @@ header {
   font-size: 21px;
   font-weight: 800;
   text-transform: uppercase;
-  text-decoration: none; /* Remove underline from links */
+  text-decoration: none;
   transition: .3s;
 }
 
 .header-nav ul li a:hover {
-  color: #db0d15; /* Change for hover effect */
+  color: #db0d15;
 }
 
-/* MainContent.css */
-.main-video video {
-    bottom: 0;
-    display: block;
-    height: 100vh;
-    left: 0;
-    object-fit: cover;
-    object-position: center center;
-    position: absolute;
-    right: 0;
-    top: 60px;
-    transform: translateZ(0);
-    width: 100%;
-    z-index: -1;
-}
-
-.video-intro {
-    color: #fff;
-    display: block;
-    font-family: proxima-nova-condensed,sans-serif;
-    font-size: 39px;
-    font-weight: 800;
-    letter-spacing: 7px;
-    line-height: 41px;
-    margin: 0 auto;
-    padding-left: 36px;
-    padding-top: 20px;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-    width: 100%;
-}
-
-/* Additional global styles, if needed */
-body {
-    font-family: proxima-nova,sans-serif;
-    font-style: normal;
-    overflow-x: hidden;
-}
-
-
-/* MainContent.css */
-.home-top {
+/* Video Display Styles */
+.home-top, .container-fluid.main-video {
+  height: 75vh;
   position: relative;
-  width: 100%;
-  height: 100vh;
-}
-
-.container-fluid.main-video {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.logo-video {
-  display: block;
-  max-width: 200px; /* Adjust as needed */
-  margin: 10% auto 0; /* Center the logo with margin */
-}
-
-.video-intro {
-  color: #fff;
-  font-family: proxima-nova-condensed, sans-serif;
-  font-size: 39px;
-  font-weight: 800;
-  letter-spacing: 7px;
-  line-height: 41px;
-  position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%);
-  text-align: center;
-  text-transform: uppercase;
   width: 100%;
 }
 
@@ -134,10 +73,95 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
 }
 
-/* Footer.css */
+.logo-video {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  max-width: 200px;
+}
+
+.video-intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  font-size: 39px;
+  font-weight: 800;
+  letter-spacing: 7px;
+  line-height: 41px;
+}
+
+/* Game Display Styles with CD Projekt Red Theme Color Coding */
+.games-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.game-card {
+  width: 300px;
+  margin: 10px;
+  background-color: #db0d15;
+  box-shadow: 0 2px 4px rgba(0,0,0,.5);
+  position: relative;
+  transition: background-color 0.3s ease;
+  color: #fff;
+}
+
+.game-card:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.game-card.unavailable {
+  filter: grayscale(100%);
+}
+
+.game-card.available {
+  background-color: #4CAF50;
+}
+
+.game-card.unavailable:hover, .game-card.available:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.game-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 15px;
+}
+
+.game-unavailable, .game-available {
+  display: block;
+  padding: 5px;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.game-card:hover .game-unavailable, .game-card:hover .game-available {
+  background-color: #db0d15;
+  color: #fff;
+}
+
+
+/* Footer Styles */
 .footer {
   background: #000;
   color: #4f575e;
@@ -164,7 +188,6 @@ body {
 
 .footer-links li {
   margin: 5px 15px;
-  font-family: proxima-nova-extra-condensed,sans-serif;
   font-size: 16px;
   font-weight: 700;
 }
@@ -192,5 +215,3 @@ body {
 .footer-bottom a:hover {
   color: #db0d15;
 }
-
-/* Add additional styles as needed */

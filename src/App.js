@@ -1,14 +1,16 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header';
-import MainContent from './components/MainContent';
+import VideoDisplay from './components/VideoDisplay'; // Adjust the import path as necessary
+import GameDisplay from './components/GameDisplay'; // Adjust the import path as necessary
 import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <MainContent />
+      <VideoDisplay /> 
+      <GameDisplay /> 
       <Footer />
     </div>
   );
